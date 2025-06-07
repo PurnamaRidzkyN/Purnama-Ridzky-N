@@ -158,59 +158,57 @@
 <body class="relative">
 
   <!-- ==================== Floating Menu ==================== -->
-  <nav class="floating-menu text-sm">
-    <a href="#">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#certificates">Certificates</a>
-    <a href="#competitions">Competitions</a>
-    <a href="#resume">Resume</a>
-  </nav>
+  <!-- Floating Nav -->
+<nav class="floating-menu fixed top-0 left-0 w-full bg-black bg-opacity-80 text-white text-sm flex flex-wrap justify-center md:justify-end gap-4 p-4 z-50">
+  <a href="#" class="hover:underline">About</a>
+  <a href="#projects" class="hover:underline">Projects</a>
+  <a href="#skills" class="hover:underline">Skills</a>
+  <a href="#certificates" class="hover:underline">Certificates</a>
+  <a href="#competitions" class="hover:underline">Competitions</a>
+  <a href="#resume" class="hover:underline">Resume</a>
+</nav>
 
-  <!-- ==================== Hero Section ==================== -->
-<section class="hero min-h-screen flex flex-col md:flex-row justify-center items-center px-0 w-full relative animate-fade-in" data-aos="fade-up">
-  <div class="overlay"></div>
+<!-- ==================== Hero Section ==================== -->
+<section class="hero min-h-screen pt-20 px-4 flex flex-col md:flex-row justify-center items-center w-full relative bg-black text-white" data-aos="fade-up">
+  <div class="overlay absolute inset-0 z-0 bg-black bg-opacity-50"></div>
 
-  <!-- Bagian kiri: Foto -->
-<img src="pur.png" alt="My Photo" class="w-64 rounded-xl shadow-lg mb-8 md:mb-0 md:mr-12 relative z-20" />
+  <!-- Foto -->
+  <img src="pur.png" alt="My Photo" class="w-40 sm:w-52 md:w-64 rounded-xl shadow-lg mb-6 md:mb-0 md:mr-12 z-20" />
 
-  <!-- Bagian kanan: teks -->
-  <div class="max-w-xl text-left text-lg text-white relative z-10">
-    <h1 class="text-5xl md:text-6xl font-bold mb-4">Focused Logic, Real Impact</h1>
+  <!-- Teks -->
+  <div class="max-w-xl text-center md:text-left text-lg z-20">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Focused Logic, Real Impact</h1>
+    <p class="text-gray-300 mb-6">AI researcher, web developer, and quiet observer of systems — welcome to my world.</p>
 
-    <p class="text-gray-300 mb-6 max-w-lg">
-      AI researcher, web developer, and quiet observer of systems — welcome to my world.
-    </p>
+    <h2 class="text-2xl md:text-3xl font-semibold mb-4">Who am I?</h2>
 
-    <h2 class="text-3xl font-semibold mb-4">Who am I?</h2>
+    <!-- Typing Box -->
+    <div class="relative h-8 overflow-hidden border-white text-white font-mono text-base md:text-lg mb-4">
+      <div class="absolute w-full" id="text-container"></div>
+    </div>
 
-<div class="relative h-8 overflow-hidden pr-2 border-white text-white font-mono text-lg">
-  <div class="absolute w-full" id="text-container"></div>
-</div>
-    <!-- Sosial Media -->
- <div class="mt-8 flex space-x-6 opacity-0 animate-fade-in-delay">
-  <a href="https://github.com/username" target="_blank" rel="noopener" aria-label="GitHub" class="hover:text-gray-300 transition">
-<img src="icons/github.png" alt="GitHub" class="w-8 h-8" style="filter: invert(1);" />
-  </a>
-  <a href="https://www.kaggle.com/username" target="_blank" rel="noopener" aria-label="Kaggle" class="hover:text-gray-300 transition">
-    <img src="icons/kaggle.png" alt="Kaggle" class="w-8 h-8" />
-  </a>
-  <a href="https://www.instagram.com/username" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-gray-300 transition">
-    <img src="icons/instagram.png" alt="Instagram" class="w-8 h-8" />
-  </a>
-  <a href="mailto:youremail@example.com" aria-label="Email" class="hover:text-gray-300 transition">
-    <img src="icons/gmail.png" alt="Email" class="w-8 h-8" />
-  </a>
-  <a href="https://www.youtube.com/channel/yourchannel" target="_blank" rel="noopener" aria-label="YouTube" class="hover:text-gray-300 transition">
-    <img src="icons/youtube.png" alt="YouTube" class="w-8 h-8" />
-  </a>
-</div>
-
-
+    <!-- Social Media Icons -->
+    <div class="mt-6 flex justify-center md:justify-start space-x-4 animate-fade-in-delay">
+      <a href="https://github.com/username" target="_blank" rel="noopener" aria-label="GitHub">
+        <img src="icons/github.png" alt="GitHub" class="w-7 h-7" style="filter: invert(1);" />
+      </a>
+      <a href="https://www.kaggle.com/username" target="_blank" rel="noopener" aria-label="Kaggle">
+        <img src="icons/kaggle.png" alt="Kaggle" class="w-7 h-7" />
+      </a>
+      <a href="https://www.instagram.com/username" target="_blank" rel="noopener" aria-label="Instagram">
+        <img src="icons/instagram.png" alt="Instagram" class="w-7 h-7" />
+      </a>
+      <a href="mailto:youremail@example.com" aria-label="Email">
+        <img src="icons/gmail.png" alt="Email" class="w-7 h-7" />
+      </a>
+      <a href="https://www.youtube.com/channel/yourchannel" target="_blank" rel="noopener" aria-label="YouTube">
+        <img src="icons/youtube.png" alt="YouTube" class="w-7 h-7" />
+      </a>
+    </div>
   </div>
 
+  <!-- Star Animation Script -->
   <script>
-    // Star & falling star script sama seperti sebelumnya tetap jalan
     document.addEventListener('DOMContentLoaded', () => {
       const hero = document.querySelector('.hero');
       for (let i = 0; i < 100; i++) {
@@ -237,6 +235,7 @@
     });
   </script>
 </section>
+
 <style>
 @keyframes fadeInDelay {
   0% {opacity: 0; transform: translateY(20px);}
