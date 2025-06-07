@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Calm Portfolio</title>
+  
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  
+  <!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #0b0f2b;
+      color: white;
+    }
+    h1, h2, h3 {
+      font-family: 'sans-serif';
+    }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1.2s ease-out forwards;
+    }
+    .hero {
+      background: url('https://images.alphacoders.com/765/765703.png') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+    }
+    .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 0;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 3s infinite ease-in-out;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+    .falling-star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, transparent);
+      opacity: 0;
+      z-index: 1;
+      animation: falling-star 2s ease-in-out;
+    }
+    @keyframes falling-star {
+      0% { transform: translate(0, 0); opacity: 1; }
+      100% { transform: translate(-300px, 600px); opacity: 0; }
+    }
+    .floating-menu {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 50;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 0.5rem 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .floating-menu a {
+      color: #cbd5e1;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .floating-menu a:hover {
+      color: #60a5fa;
+    }
+
+    /* Modal Styles */
+    .modal-bg {
+      background: rgba(0,0,0,0.75);
+      position: fixed;
+      top:0; left:0; width:100%; height:100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 100;
+    }
+    .modal-bg.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal {
+      background: #1a202c;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 500px;
+      width: 90%;
+      color: white;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 0.5rem;
+      right: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #60a5fa;
+      user-select: none;
+    }
+
+    /* Skill bars */
+    .skill-bar-bg {
+      background-color: #2d3748;
+      border-radius: 9999px;
+      height: 1rem;
+      width: 100%;
+    }
+    .skill-bar-fill {
+      background-color: #60a5fa;
+      height: 1rem;
+      border-radius: 9999px;
+      transition: width 1s ease;
+    }
+
+  </style>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true,
+  });
+</script>
+
+</head>
+<body class="relative">
+
+  <!-- ==================== Floating Menu ==================== -->
+  <nav class="floating-menu text-sm">
+    <a href="#">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#competitions">Competitions</a>
+    <a href="#resume">Resume</a>
+  </nav>
+
+  <!-- ==================== Hero Section ==================== -->
+<section class="hero min-h-screen flex flex-col md:flex-row justify-center items-center px-0 w-full relative animate-fade-in" data-aos="fade-up">
+  <div class="overlay"></div>
+
+  <!-- Bagian kiri: Foto -->
+<img src="pur.png" alt="My Photo" class="w-64 rounded-xl shadow-lg mb-8 md:mb-0 md:mr-12 relative z-20" />
+
+  <!-- Bagian kanan: teks -->
+  <div class="max-w-xl text-left text-lg text-white relative z-10">
+    <h1 class="text-5xl md:text-6xl font-bold mb-4">Focused Logic, Real Impact</h1>
+
+    <p class="text-gray-300 mb-6 max-w-lg">
+      AI researcher, web developer, and quiet observer of systems — welcome to my world.
+    </p>
+
+    <h2 class="text-3xl font-semibold mb-4">Who am I?</h2>
+
+<div class="relative h-8 overflow-hidden pr-2 border-white text-white font-mono text-lg">
+  <div class="absolute w-full" id="text-container"></div>
+</div>
+    <!-- Sosial Media -->
+ <div class="mt-8 flex space-x-6 opacity-0 animate-fade-in-delay">
+  <a href="https://github.com/username" target="_blank" rel="noopener" aria-label="GitHub" class="hover:text-gray-300 transition">
+<img src="icons/github.png" alt="GitHub" class="w-8 h-8" style="filter: invert(1);" />
+  </a>
+  <a href="https://www.kaggle.com/username" target="_blank" rel="noopener" aria-label="Kaggle" class="hover:text-gray-300 transition">
+    <img src="icons/kaggle.png" alt="Kaggle" class="w-8 h-8" />
+  </a>
+  <a href="https://www.instagram.com/username" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-gray-300 transition">
+    <img src="icons/instagram.png" alt="Instagram" class="w-8 h-8" />
+  </a>
+  <a href="mailto:youremail@example.com" aria-label="Email" class="hover:text-gray-300 transition">
+    <img src="icons/gmail.png" alt="Email" class="w-8 h-8" />
+  </a>
+  <a href="https://www.youtube.com/channel/yourchannel" target="_blank" rel="noopener" aria-label="YouTube" class="hover:text-gray-300 transition">
+    <img src="icons/youtube.png" alt="YouTube" class="w-8 h-8" />
+  </a>
+</div>
+
+
+  </div>
+
+  <script>
+    // Star & falling star script sama seperti sebelumnya tetap jalan
+    document.addEventListener('DOMContentLoaded', () => {
+      const hero = document.querySelector('.hero');
+      for (let i = 0; i < 100; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDuration = `${2 + Math.random() * 1}s`;
+        hero.appendChild(star);
+      }
+
+      function createFallingStar() {
+        const star = document.createElement('div');
+        star.className = 'falling-star';
+        star.style.top = `${Math.random() * 20 + 10}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        hero.appendChild(star);
+        setTimeout(() => star.remove(), 2000);
+      }
+
+      setInterval(() => {
+        if (Math.random() < 0.3) createFallingStar();
+      }, 4000);
+    });
+  </script>
+</section>
+<style>
+@keyframes fadeInDelay {
+  0% {opacity: 0; transform: translateY(20px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+.animate-fade-in-delay {
+  animation: fadeInDelay 1s ease forwards;
+  animation-delay: 6s; /* delay supaya muncul setelah typing selesai */
+}
+
+
+.text-slide {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.text-slide.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.text-slide.exit {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+</style>
+
+
+<script>
+const texts = [
+  "Machine Learning Engineer specializing in AI solutions.",
+  "Backend developer focused on scalable, efficient systems.",
+  "Full Stack Developer with hands-on experience in web apps.",
+  "Data Mining enthusiast extracting insights from data.",
+  "Database management and optimization expert.",
+  "Working with Retrieval-Augmented Generation (RAG) systems."
+];
+
+
+let currentIndex = 0;
+const container = document.getElementById('text-container');
+
+function createTextElement(text) {
+  const el = document.createElement('div');
+  el.classList.add('text-slide');
+  el.textContent = text;
+  return el;
+}
+
+function showNextText() {
+  // Hapus elemen lama yang aktif jadi exit
+  const current = container.querySelector('.active');
+  if (current) {
+    current.classList.remove('active');
+    current.classList.add('exit');
+    setTimeout(() => current.remove(), 600);
+  }
+
+  // Buat elemen baru
+  const nextText = createTextElement(texts[currentIndex]);
+  container.appendChild(nextText);
+
+  // Delay sedikit supaya transisi bisa jalan
+  setTimeout(() => {
+    nextText.classList.add('active');
+  }, 50);
+
+  currentIndex = (currentIndex + 1) % texts.length;
+}
+
+// Init pertama
+showNextText();
+// Loop setiap 3 detik (bisa diubah)
+setInterval(showNextText, 3000);
+
+</script>
+  <!-- ==================== Projects ==================== -->
+<!-- Tambahkan ini di <head> atau sebelum </body> untuk AOS CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    AOS.init({ once: true }); // sekali animasi saja
+  });
+</script>
+
+<!-- ==================== Projects ==================== -->
+<section id="projects" class="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
+  <h2 class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto" data-aos="fade-down">
+    What I’ve built
+  </h2>
+  
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- Project 1 -->
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0" 
+         data-aos="fade-up" data-aos-delay="100"
+         data-project='{
+           "title":"Time Series Forecaster",
+           "desc":"Forecasting real-world data using lag features, sliding windows, and deep models.",
+           "details":"I build models to predict time series data with lag features and sliding window techniques using deep learning. This includes preprocessing pipelines for efficient training and deployment.",
+           "technologies":["Python", "TensorFlow", "Keras", "Pandas"]
+         }'>
+      <h3 class="text-xl font-bold">Time Series Forecaster</h3>
+      <p class="text-gray-300 mt-2">Forecasting real-world data using lag features, sliding windows, and deep models.</p>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0" 
+         data-aos="fade-up" data-aos-delay="200"
+         data-project='{
+           "title":"Image Classification with TFRecord",
+           "desc":"Building CNN models for multi-class flower classification using TFRecord datasets.",
+           "details":"Working on image augmentation, pipeline creation, and model architecture tuning for 104 flower species classification.",
+           "technologies":["Python", "TensorFlow", "CNN", "TFRecord"]
+         }'>
+      <h3 class="text-xl font-bold">Image Classification with TFRecord</h3>
+      <p class="text-gray-300 mt-2">Building CNN models for multi-class flower classification using TFRecord datasets.</p>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0" 
+         data-aos="fade-up" data-aos-delay="300"
+         data-project='{
+           "title":"DPM Student Organization Booth",
+           "desc":"Designing interactive mini-games and information displays for student council events.",
+           "details":"Created fun and educational games like 'Scan & Learn' with QR codes and prize wheels for engagement.",
+           "technologies":["JavaScript", "HTML", "CSS"]
+         }'>
+      <h3 class="text-xl font-bold">DPM Student Organization Booth</h3>
+      <p class="text-gray-300 mt-2">Designing interactive mini-games and information displays for student council events.</p>
+    </div>
+
+  </div>
+</section>
+
+  
+
+  <!-- ==================== Projects Modal ==================== -->
+  <div id="modal" class="modal-bg" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal" role="document">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3 class="text-2xl font-bold mb-2" id="modal-title"></h3>
+      <p id="modal-desc" class="mb-4"></p>
+      <p id="modal-details" class="mb-4"></p>
+      <div id="modal-techs" class="flex flex-wrap gap-2"></div>
+    </div>
+  </div>
+
+  <!-- ==================== Skills ==================== -->
+<section id="skills" class="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center" data-aos="fade-up">
+  <h2 class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto" data-aos="fade-down">
+    Skills & Tech Stack
+  </h2>
+  <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10">
+
+    <!-- Python -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+      <img src="icons/python.svg" alt="Python" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">Python</h3>
+    </div>
+
+    <!-- Bootstrap -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+      <img src="icons/bootstrap.svg" alt="Bootstrap" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">Bootstrap</h3>
+    </div>
+
+    <!-- Java -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+      <img src="icons/java.svg" alt="Java" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">Java</h3>
+    </div>
+
+    <!-- Jupyter -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="400">
+      <img src="icons/jupyter.png" alt="Jupyter" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">Jupyter</h3>
+    </div>
+
+    <!-- LangChain -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="500">
+      <img src="icons/langchain.svg" alt="LangChain" class="w-16 h-16 mb-4" style="filter: invert(1);"/>
+      <h3 class="font-semibold text-lg">LangChain</h3>
+    </div>
+
+    <!-- Laravel -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="600">
+      <img src="icons/laravel.svg" alt="Laravel" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">Laravel</h3>
+    </div>
+
+    <!-- Matplotlib -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="700">
+      <img src="icons/matplotlib.png" alt="Matplotlib" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">Matplotlib</h3>
+    </div>
+
+    <!-- MySQL -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="800">
+      <img src="icons/mysql.svg" alt="MySQL" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">MySQL</h3>
+    </div>
+
+    <!-- Pandas -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="900">
+      <img src="icons/pandas.png" alt="Pandas" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">Pandas</h3>
+    </div>
+
+    <!-- PHP -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="1000">
+      <img src="icons/php.svg" alt="PHP" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">PHP</h3>
+    </div>
+
+    <!-- Tailwind CSS -->
+    <div class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl" data-aos="fade-up" data-aos-delay="1100">
+      <img src="icons/tailwindcss.svg" alt="Tailwind CSS" class="w-16 h-16 mb-4" />
+      <h3 class="font-semibold text-lg">Tailwind CSS</h3>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- ==================== Certificates ==================== -->
+<section id="certificates" class="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
+  <h2 class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto">
+    Certificates
+  </h2>
+  <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+      <img src="certificates/Purnama Ridzky Nugraha - Data Cleaning.png" alt="Data Cleaning Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+      <img src="certificates/Purnama Ridzky Nugraha - Data Visualization.png" alt="Data Visualization Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="300">
+      <img src="certificates/Purnama Ridzky Nugraha - Feature Engineering.png" alt="Feature Engineering Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="400">
+      <img src="certificates/Purnama Ridzky Nugraha - Intermediate Machine Learning.png" alt="Intermediate Machine Learning Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="500">
+      <img src="certificates/Purnama Ridzky Nugraha - Intro to Machine Learning.png" alt="Intro to Machine Learning Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="600">
+      <img src="certificates/Purnama Ridzky Nugraha - Intro to Programming.png" alt="Intro to Programming Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="700">
+      <img src="certificates/Purnama Ridzky Nugraha - Machine Learning Explainability.png" alt="Machine Learning Explainability Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="800">
+      <img src="certificates/Purnama Ridzky Nugraha - Pandas.png" alt="Pandas Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="900">
+      <img src="certificates/Purnama Ridzky Nugraha - Python.png" alt="Python Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+    <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="1000">
+      <img src="certificates/Purnama Ridzky Nugraha - Time Series.png" alt="Time Series Certificate" class="rounded-md mx-auto modal-img" />
+    </div>
+
+  </div>
+</section>
+<div id="modalfi" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
+  <span id="modal-close" class="absolute top-4 right-6 text-white text-3xl cursor-pointer font-bold">&times;</span>
+  <img id="modal-img" src="" alt="Enlarged certificate" class="max-h-full max-w-full rounded-md shadow-lg" />
+</div>
+<script>
+ document.addEventListener('DOMContentLoaded', () => {
+  const modalImages = document.querySelectorAll('.modal-img');
+  const modal = document.getElementById('modalfi');  // sesuaikan dengan id modal di HTML
+  const modalImg = document.getElementById('modal-img');
+  const modalClose = document.getElementById('modal-close');
+
+  modalImages.forEach(img => {
+    img.addEventListener('click', () => {
+      modal.style.display = 'flex'; // tampilkan modal
+      modalImg.src = img.src;       // ganti src modal dengan gambar yang diklik
+      modalImg.alt = img.alt;
+    });
+  });
+
+  // Tutup modal kalau klik tombol close
+  modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  // Tutup modal kalau klik di luar gambar
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+});
+
+</script>
+
+
+  <!-- ==================== Competitions ==================== -->
+
+<section id="competitions" class="py-20 px-6 bg-gray-900 text-white text-center" data-aos="fade-up">
+  <h2 class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto" data-aos="fade-down">
+    <img src="icons/kaggle.png" alt="Kaggle" class="inline w-8 h-8 mr-2 align-middle" />
+    Competitions on Kaggle
+  </h2>
+
+  <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Solana Skill Sprint: Memecoin Graduation</h3>
+      <p class="text-sm mb-1">Cryptocurrency Forecasting · 2024</p>
+      <a href="https://www.kaggle.com/competitions/solana-skill-sprint-memcoin-graduation" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Molecular Machine Learning</h3>
+      <p class="text-sm mb-1">Chemical Property Prediction · 2024</p>
+      <a href="https://www.kaggle.com/competitions/molecular-machine-learning" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Playground Series - Season 5, Episode 3</h3>
+      <p class="text-sm mb-1">Tabular Data Challenge · 2024</p>
+      <a href="https://www.kaggle.com/competitions/playground-series-s5e3" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Russian Car Plates Prices Prediction</h3>
+      <p class="text-sm mb-1">Price Prediction · Regression · 2024</p>
+      <a href="https://www.kaggle.com/competitions/russian-car-plates-prices-prediction" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Spaceship Titanic</h3>
+      <p class="text-sm mb-1">Binary Classification · Sci-Fi Dataset · 2023</p>
+      <a href="https://www.kaggle.com/competitions/spaceship-titanic" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Store Sales - Time Series Forecasting</h3>
+      <p class="text-sm mb-1">Time Series · Ecuador Retail Data · 2023</p>
+      <a href="https://www.kaggle.com/competitions/store-sales-time-series-forecasting" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-2">House Prices - Advanced Regression Techniques</h3>
+      <p class="text-sm mb-1">Regression · Feature Engineering · Classic Competition</p>
+      <a href="https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+    </div>
+
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+  <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Titanic - Machine Learning from Disaster</h3>
+  <p class="text-sm mb-1">Classification · Binary Prediction · Classic Competition</p>
+  <a href="https://www.kaggle.com/competitions/titanic" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+</div>
+
+  </div>
+  
+</section>
+
+
+  <!-- ==================== Resume Section ==================== -->
+<section id="resume" class="py-20 px-6 bg-gradient-to-r from-blue-900 via-navy-800 to-navy-900 text-white text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-extrabold mb-8 tracking-wide drop-shadow-md">
+    Download My Resume
+  </h2>
+    <a href="CV-CalmLogic.pdf" download
+       class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition">
+      Download Resume (PDF)
+    </a>
+  </section>
+
+  <!-- ==================== Footer ==================== -->
+ <footer class="text-center py-6 text-gray-400 text-sm bg-gray-900">
+  &copy; 2025 Purnama Ridzky Nugraha Portfolio. All rights reserved.
+</footer>
+
+
+  <!-- ==================== Scripts ==================== -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    AOS.init();
+  });
+
+
+    // Modal Logic
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalDetails = document.getElementById('modal-details');
+    const modalTechs = document.getElementById('modal-techs');
+    const modalCloseBtn = document.querySelector('.modal-close');
+
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const data = JSON.parse(card.getAttribute('data-project'));
+        modalTitle.textContent = data.title;
+        modalDesc.textContent = data.desc;
+        modalDetails.textContent = data.details;
+        modalTechs.innerHTML = '';
+        data.technologies.forEach(tech => {
+          const span = document.createElement('span');
+          span.textContent = tech;
+          span.className = 'bg-blue-600 px-3 py-1 rounded-full text-sm mr-2 mb-2 inline-block';
+          modalTechs.appendChild(span);
+        });
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    modalCloseBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+
+    // Contact form submission (dummy example)
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      // Simulate sending message
+      formStatus.classList.remove('hidden');
+      contactForm.reset();
+    });
+  </script>
+</body>
+</html>
