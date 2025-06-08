@@ -22,9 +22,6 @@
       background-color: #0b0f2b;
       color: white;
     }
-    h1, h2, h3 {
-      font-family: 'sans-serif';
-    }
     @keyframes fade-in {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -73,27 +70,6 @@
       0% { transform: translate(0, 0); opacity: 1; }
       100% { transform: translate(-300px, 600px); opacity: 0; }
     }
-    .floating-menu {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      z-index: 50;
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 1rem;
-      padding: 0.5rem 1rem;
-      display: flex;
-      gap: 1rem;
-    }
-    .floating-menu a {
-      color: #cbd5e1;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-    .floating-menu a:hover {
-      color: #60a5fa;
-    }
-
     /* Modal Styles */
     .modal-bg {
       background: rgba(0,0,0,0.75);
@@ -144,22 +120,70 @@
       border-radius: 9999px;
       transition: width 1s ease;
     }
+  
+  /* Style nav desktop */
+  .floating-menu {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
 
-  </style>
+    gap: 1rem;
+  }
+  .floating-menu a {
+    color: #cbd5e1;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .floating-menu a:hover {
+    color: #60a5fa;
+  }
+
+  /* Dropdown mobile */
+  #menu-mobile {
+  position: fixed;
+  top: 4rem;
+  right: 1rem;
+  z-index: 50;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  width: 12rem;
+}
+
+  #menu-mobile a {
+    color: #cbd5e1;
+    font-weight: 500;
+    transition: color 0.3s;
+    text-align: right;
+  }
+  #menu-mobile a:hover {
+    color: #60a5fa;
+  }
+</style>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({
-    duration: 800,
-    once: true,
-  });
+  mirror: true,  // animasi ulang kalau scroll keluar dan masuk lagi
+  once: false,   // supaya animasi bisa muncul berkali-kali
+  duration: 800,
+});
+  
 </script>
 
 </head>
 <body class="relative">
 
   <!-- ==================== Floating Menu ==================== -->
-  <!-- Floating Nav -->
-<nav class="floating-menu fixed top-0 left-0 w-full bg-black bg-opacity-80 text-white text-sm flex flex-wrap justify-center md:justify-end gap-4 p-4 z-50">
+<!-- Navbar desktop -->
+<nav class="floating-menu hidden md:flex">
   <a href="#" class="hover:underline">About</a>
   <a href="#projects" class="hover:underline">Projects</a>
   <a href="#skills" class="hover:underline">Skills</a>
@@ -168,6 +192,36 @@
   <a href="#resume" class="hover:underline">Resume</a>
 </nav>
 
+<!-- Tombol toggle mobile -->
+<button id="menu-toggle" class="md:hidden fixed top-4 right-4 z-50 text-white text-3xl">
+  ☰
+</button>
+
+<!-- Dropdown menu mobile -->
+<div id="menu-mobile" class="hidden flex flex-col gap-4 w-48 text-right bg-black bg-opacity-50 rounded p-4 fixed top-16 right-4 z-50">
+  <a href="#" class="hover:underline">About</a>
+  <a href="#projects" class="hover:underline">Projects</a>
+  <a href="#skills" class="hover:underline">Skills</a>
+  <a href="#certificates" class="hover:underline">Certificates</a>
+  <a href="#competitions" class="hover:underline">Competitions</a>
+  <a href="#resume" class="hover:underline">Resume</a>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('menu-mobile');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Tutup dropdown saat klik link
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
 <!-- ==================== Hero Section ==================== -->
 <section class="hero min-h-screen pt-20 px-4 flex flex-col md:flex-row justify-center items-center w-full relative bg-black text-white" data-aos="fade-up">
   <div class="overlay absolute inset-0 z-0 bg-black bg-opacity-50"></div>
@@ -333,46 +387,49 @@ setInterval(showNextText, 3000);
   <h2 class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto" data-aos="fade-down">
     What I’ve built
   </h2>
-  
+
   <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <!-- Project 1 -->
-    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0" 
+    <!-- Project 1: Sayaka-Nao -->
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0"
          data-aos="fade-up" data-aos-delay="100"
          data-project='{
-           "title":"Time Series Forecaster",
-           "desc":"Forecasting real-world data using lag features, sliding windows, and deep models.",
-           "details":"I build models to predict time series data with lag features and sliding window techniques using deep learning. This includes preprocessing pipelines for efficient training and deployment.",
-           "technologies":["Python", "TensorFlow", "Keras", "Pandas"]
+           "title":"Sayaka-Nao Chatbot",
+           "desc":"Flask-based chatbot with memory and PDF knowledge upload features.",
+           "details":"Sayaka-Nao is a smart AI chatbot built with Flask. She remembers casual conversations and helps with learning by allowing PDF uploads, enabling more insightful and personalized interaction.",
+           "technologies":["Python", "Flask", "Tailwind", "HTML", "Langchain", "chromadb"]
          }'>
-      <h3 class="text-xl font-bold">Time Series Forecaster</h3>
-      <p class="text-gray-300 mt-2">Forecasting real-world data using lag features, sliding windows, and deep models.</p>
+      <h3 class="text-xl font-bold">Sayaka-Nao Chatbot</h3>
+      <p class="text-gray-300 mt-2">Flask-based chatbot with memory and PDF knowledge upload features.</p>
+      <a href="https://github.com/PurnamaRidzkyN/Sayaka-Nao" target="_blank" class="inline-block mt-4 text-yellow-400 hover:underline">View on GitHub</a>
     </div>
 
-    <!-- Project 2 -->
-    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0" 
+    <!-- Project 2: Tracer Study -->
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0"
          data-aos="fade-up" data-aos-delay="200"
          data-project='{
-           "title":"Image Classification with TFRecord",
-           "desc":"Building CNN models for multi-class flower classification using TFRecord datasets.",
-           "details":"Working on image augmentation, pipeline creation, and model architecture tuning for 104 flower species classification.",
-           "technologies":["Python", "TensorFlow", "CNN", "TFRecord"]
+           "title":"Polinema Tracer Study",
+           "desc":"A Laravel-based web system for tracking alumni outcomes.",
+           "details":"Web application to facilitate tracer study for Polinema using Laravel framework. Allows alumni to fill in post-graduation data and helps institutions evaluate career outcomes.",
+           "technologies":["PHP", "Laravel", "MySQL", "HTML", "CSS", "Bootstrap"]
          }'>
-      <h3 class="text-xl font-bold">Image Classification with TFRecord</h3>
-      <p class="text-gray-300 mt-2">Building CNN models for multi-class flower classification using TFRecord datasets.</p>
+      <h3 class="text-xl font-bold">Polinema Tracer Study</h3>
+      <p class="text-gray-300 mt-2">A Laravel-based web system for tracking alumni outcomes.</p>
+      <a href="https://github.com/PurnamaRidzkyN/TRACER_STUDY" target="_blank" class="inline-block mt-4 text-yellow-400 hover:underline">View on GitHub</a>
     </div>
 
-    <!-- Project 3 -->
-    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0" 
+    <!-- Project 3: Y-Aladzan Website -->
+    <div class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card" tabindex="0"
          data-aos="fade-up" data-aos-delay="300"
          data-project='{
-           "title":"DPM Student Organization Booth",
-           "desc":"Designing interactive mini-games and information displays for student council events.",
-           "details":"Created fun and educational games like 'Scan & Learn' with QR codes and prize wheels for engagement.",
-           "technologies":["JavaScript", "HTML", "CSS"]
+           "title":"Y-Aladzan Company Website",
+           "desc":"Official operational website for Y-Aladzan Corporation.",
+           "details":"This is the official company profile website for Y-Aladzan Corporation. It contains company services, contact information, and has been deployed for real-world operations.",
+           "technologies":["PHP", "HTML", "CSS", "Bootstrap", "Laravel"]
          }'>
-      <h3 class="text-xl font-bold">DPM Student Organization Booth</h3>
-      <p class="text-gray-300 mt-2">Designing interactive mini-games and information displays for student council events.</p>
+      <h3 class="text-xl font-bold">Y-Aladzan Company Website</h3>
+      <p class="text-gray-300 mt-2">Official operational website for Y-Aladzan Corporation.</p>
+      <a href="https://github.com/PurnamaRidzkyN/Website-Y-ALADZAN-CORPORATION" target="_blank" class="inline-block mt-4 text-yellow-400 hover:underline">View on GitHub</a>
     </div>
 
   </div>
@@ -473,7 +530,8 @@ setInterval(showNextText, 3000);
   <h2 class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto">
     Certificates
   </h2>
-  <div class="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+
 
     <div class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
       <img src="certificates/Purnama Ridzky Nugraha - Data Cleaning.png" alt="Data Cleaning Certificate" class="rounded-md mx-auto modal-img" />
@@ -553,65 +611,62 @@ setInterval(showNextText, 3000);
 
 
   <!-- ==================== Competitions ==================== -->
-
-<section id="competitions" class="py-20 px-6 bg-gray-900 text-white text-center" data-aos="fade-up">
+<section id="competitions" class="py-20 px-6 bg-gray-900 text-white text-center">
   <h2 class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto" data-aos="fade-down">
     <img src="icons/kaggle.png" alt="Kaggle" class="inline w-8 h-8 mr-2 align-middle" />
     Competitions on Kaggle
   </h2>
 
-  <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+  <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
 
-    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left" data-aos="fade-up">
       <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Solana Skill Sprint: Memecoin Graduation</h3>
       <p class="text-sm mb-1">Cryptocurrency Forecasting · 2024</p>
       <a href="https://www.kaggle.com/competitions/solana-skill-sprint-memcoin-graduation" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
     </div>
 
-    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left" data-aos="fade-up">
       <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Molecular Machine Learning</h3>
       <p class="text-sm mb-1">Chemical Property Prediction · 2024</p>
       <a href="https://www.kaggle.com/competitions/molecular-machine-learning" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
     </div>
 
-    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left" data-aos="fade-up">
       <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Playground Series - Season 5, Episode 3</h3>
       <p class="text-sm mb-1">Tabular Data Challenge · 2024</p>
       <a href="https://www.kaggle.com/competitions/playground-series-s5e3" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
     </div>
 
-    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left" data-aos="fade-up">
       <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Russian Car Plates Prices Prediction</h3>
       <p class="text-sm mb-1">Price Prediction · Regression · 2024</p>
       <a href="https://www.kaggle.com/competitions/russian-car-plates-prices-prediction" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
     </div>
 
-    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left" data-aos="fade-up">
       <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Spaceship Titanic</h3>
       <p class="text-sm mb-1">Binary Classification · Sci-Fi Dataset · 2023</p>
       <a href="https://www.kaggle.com/competitions/spaceship-titanic" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
     </div>
 
-    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left" data-aos="fade-up">
       <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Store Sales - Time Series Forecasting</h3>
       <p class="text-sm mb-1">Time Series · Ecuador Retail Data · 2023</p>
       <a href="https://www.kaggle.com/competitions/store-sales-time-series-forecasting" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
     </div>
 
-    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left" data-aos="fade-up">
       <h3 class="text-2xl font-semibold text-yellow-400 mb-2">House Prices - Advanced Regression Techniques</h3>
       <p class="text-sm mb-1">Regression · Feature Engineering · Classic Competition</p>
       <a href="https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
     </div>
 
-    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left">
-  <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Titanic - Machine Learning from Disaster</h3>
-  <p class="text-sm mb-1">Classification · Binary Prediction · Classic Competition</p>
-  <a href="https://www.kaggle.com/competitions/titanic" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
-</div>
-
+    <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left" data-aos="fade-up">
+      <h3 class="text-2xl font-semibold text-yellow-400 mb-2">Titanic - Machine Learning from Disaster</h3>
+      <p class="text-sm mb-1">Classification · Binary Prediction · Classic Competition</p>
+      <a href="https://www.kaggle.com/competitions/titanic" target="_blank" class="text-blue-400 underline mt-2 inline-block">View Competition</a>
+    </div>
   </div>
-  
 </section>
 
 
