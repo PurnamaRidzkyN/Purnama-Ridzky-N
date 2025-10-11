@@ -199,8 +199,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({
-        mirror: true, // animasi ulang kalau scroll keluar dan masuk lagi
-        once: false, // supaya animasi bisa muncul berkali-kali
+        mirror: true,
+        once: false,
         duration: 800,
       });
     </script>
@@ -210,11 +210,9 @@
     <!-- Navbar desktop -->
     <nav class="floating-menu hidden md:flex">
       <a href="#" class="hover:underline">About</a>
+      <a href="#achievements" class="hover:underline">Achievements</a>
       <a href="#projects" class="hover:underline">Projects</a>
       <a href="#skills" class="hover:underline">Skills</a>
-      <a href="#certificates" class="hover:underline">Certificates</a>
-      <a href="#competitions" class="hover:underline">Competitions</a>
-      <a href="#resume" class="hover:underline">Resume</a>
     </nav>
 
     <!-- Tombol toggle mobile -->
@@ -229,11 +227,9 @@
       id="menu-mobile"
       class="hidden flex flex-col gap-4 w-48 text-right bg-black bg-opacity-50 rounded p-4 fixed top-16 right-4 z-50">
       <a href="#" class="hover:underline">About</a>
+      <a href="#achievements" class="hover:underline">Achievements</a>
       <a href="#projects" class="hover:underline">Projects</a>
       <a href="#skills" class="hover:underline">Skills</a>
-      <a href="#certificates" class="hover:underline">Certificates</a>
-      <a href="#competitions" class="hover:underline">Competitions</a>
-      <a href="#resume" class="hover:underline">Resume</a>
     </div>
 
     <script>
@@ -275,10 +271,8 @@
         </h1>
 
         <p class="text-gray-300 mb-6" data-aos="fade-up" data-aos-delay="300">
-          AI researcher, web developer, and quiet observer of systems — welcome
-          to my world.
+          Transforming raw data into insights for seizing opportunities.
         </p>
-
         <h2
           class="text-2xl md:text-3xl font-semibold mb-4"
           data-aos="fade-up"
@@ -334,6 +328,16 @@
             <img src="icons/youtube.png" alt="YouTube" class="w-7 h-7" />
           </a>
         </div>
+        <!-- Resume Button -->
+        <div class="mt-6" data-aos="fade-up" data-aos-delay="400">
+          <a
+            href="https://drive.google.com/drive/folders/1IqmNzDbyX45f9AqS_K7pJ5i8LF7YFr90?usp=sharing"
+            target="_blank"
+            rel="noopener"
+            class="px-6 py-2 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition">
+            View Resume
+          </a>
+        </div>
       </div>
 
       <!-- Star Animation Script -->
@@ -381,10 +385,10 @@
       const typingTexts = [
         " Data Scientist.",
         " Data Miner.",
+        " Data Analyst.",
+        " Data Analisis.",
         " Machine Learning Engineer.",
-        " RAG Specialist.",
         " Full Stack Developer.",
-        " Web Developer.",
       ];
 
       let textIndex = 0;
@@ -419,9 +423,54 @@
         setTimeout(typeEffect, 1000); // Mulai setelah 1 detik
       });
     </script>
+    <!-- ==================== Achievements & Kaggle Activity ==================== -->
+  <section
+  id="achievements"
+  class="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
+
+  <h2 class="text-4xl font-bold mb-12 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto">
+    Achievements & Kaggle Activity
+  </h2>
+
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Certificates Card -->
+    <a href="https://drive.google.com/drive/folders/1tVUIwLYKQdMhX-RdAJy-K8R8e8ZVcSj4?usp=sharing"
+      target="_blank"
+      class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
+      <h3 class="font-semibold text-xl text-yellow-400 mb-4">Certificates</h3>
+      <p class="text-sm mb-4">Explore all my certificates</p>
+      <span class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
+        View
+      </span>
+    </a>
+
+    <!-- Kaggle Competitions Card -->
+    <a href="https://www.kaggle.com/purnamaridzkynugraha/competitions"
+      target="_blank"
+      class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
+      <h3 class="font-semibold text-xl text-yellow-400 mb-4">Kaggle Competitions</h3>
+      <p class="text-sm mb-4">Check my best competitions</p>
+      <span class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
+        View
+      </span>
+    </a>
+
+    <!-- Public Notebooks Card -->
+    <a href="https://www.kaggle.com/purnamaridzkynugraha/code"
+      target="_blank"
+      class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
+      <h3 class="font-semibold text-xl text-yellow-400 mb-4">Public Notebooks</h3>
+      <p class="text-sm mb-4">Explore my data & ML notebooks</p>
+      <span class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
+        View
+      </span>
+    </a>
+
+  </div>
+</section>
 
     <!-- ==================== Projects ==================== -->
-    <!-- Tambahkan ini di <head> atau sebelum </body> untuk AOS CSS & JS -->
     <link
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet" />
@@ -444,24 +493,25 @@
 
       <div
         class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Project 1: Sayaka-Nao -->
+        <!-- Project 1: Y-Aladzan Reseller Platform -->
         <div
           class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card"
           tabindex="0"
           data-aos="fade-up"
           data-aos-delay="100"
           data-project='{
-           "title":"Sayaka-Nao Chatbot",
-           "desc":"Flask-based chatbot with memory and PDF knowledge upload features.",
-           "details":"Sayaka-Nao is a smart AI chatbot built with Flask. She remembers casual conversations and helps with learning by allowing PDF uploads, enabling more insightful and personalized interaction.",
-           "technologies":["Python", "Flask", "Tailwind", "HTML", "Langchain", "chromadb"]
-         }'>
-          <h3 class="text-xl font-bold">Sayaka-Nao Chatbot</h3>
+            "title":"Y-Aladzan Reseller Platform",
+            "desc":"Fullstack web platform for managing reseller, admin, and superadmin roles.",
+            "details":"Developed a fullstack web platform for Aladzan Corpora to manage reseller operations, including product catalog, package access, dropshipping, and promotional materials. Admins manage resellers, packages, and transactions, while superadmins have full control and reporting capabilities. Front-end built with Tailwind CSS and back-end with PHP Laravel, supporting real-time data integration.",
+            "technologies":["PHP", "Laravel", "Tailwind", "HTML", "MySQL"]
+          }'>
+          <h3 class="text-xl font-bold">Y-Aladzan Reseller Platform</h3>
           <p class="text-gray-300 mt-2">
-            Flask-based chatbot with memory and PDF knowledge upload features.
+            Fullstack web platform for managing reseller, admin, and superadmin
+            roles.
           </p>
           <a
-            href="https://github.com/PurnamaRidzkyN/Sayaka-Nao"
+            href="https://github.com/PurnamaRidzkyN/Aladzan_Corpora"
             target="_blank"
             class="inline-block mt-4 text-yellow-400 hover:underline"
             >View on GitHub</a
@@ -569,15 +619,6 @@
           <h3 class="font-semibold text-lg">Bootstrap</h3>
         </div>
 
-        <!-- Java -->
-        <div
-          class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
-          data-aos="fade-up"
-          data-aos-delay="300">
-          <img src="icons/java.svg" alt="Java" class="w-16 h-16 mb-4" />
-          <h3 class="font-semibold text-lg">Java</h3>
-        </div>
-
         <!-- Jupyter -->
         <div
           class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
@@ -587,19 +628,6 @@
           <h3 class="font-semibold text-lg">Jupyter</h3>
         </div>
 
-        <!-- LangChain -->
-        <div
-          class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
-          data-aos="fade-up"
-          data-aos-delay="500">
-          <img
-            src="icons/langchain.svg"
-            alt="LangChain"
-            class="w-16 h-16 mb-4"
-            style="filter: invert(1)" />
-          <h3 class="font-semibold text-lg">LangChain</h3>
-        </div>
-
         <!-- Laravel -->
         <div
           class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
@@ -607,6 +635,45 @@
           data-aos-delay="600">
           <img src="icons/laravel.svg" alt="Laravel" class="w-16 h-16 mb-4" />
           <h3 class="font-semibold text-lg">Laravel</h3>
+        </div>
+
+        <!-- NumPy -->
+        <div
+          class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+          data-aos="fade-up"
+          data-aos-delay="700">
+          <img src="icons/numpy.png" alt="NumPy" class="w-16 h-16 mb-4" />
+          <h3 class="font-semibold text-lg">NumPy</h3>
+        </div>
+
+        <!-- scikit-learn -->
+        <div
+          class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+          data-aos="fade-up"
+          data-aos-delay="800">
+          <img
+            src="icons/scikit-learn.png"
+            alt="scikit-learn"
+            class="w-16 h-16 mb-4" />
+          <h3 class="font-semibold text-lg">scikit-learn</h3>
+        </div>
+
+        <!-- flask -->
+        <div
+          class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+          data-aos="fade-up"
+          data-aos-delay="800">
+          <img src="icons/Flask.svg" alt="flask" class="w-16 h-16 mb-4" />
+          <h3 class="font-semibold text-lg">flask</h3>
+        </div>
+
+        <!-- seaborn -->
+        <div
+          class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
+          data-aos="fade-up"
+          data-aos-delay="800">
+          <img src="icons/seaborn.png" alt="seaborn" class="w-16 h-16 mb-4" />
+          <h3 class="font-semibold text-lg">seaborn</h3>
         </div>
 
         <!-- Matplotlib -->
@@ -659,334 +726,8 @@
             class="w-16 h-16 mb-4" />
           <h3 class="font-semibold text-lg">Tailwind CSS</h3>
         </div>
-        <!-- chroma db -->
-        <div
-          class="bg-gray-700 rounded-lg p-6 flex flex-col items-center shadow-lg transform transition duration-500 hover:scale-110 hover:shadow-2xl"
-          data-aos="fade-up"
-          data-aos-delay="1100">
-          <img
-            src="icons/chroma.png"
-            alt="Tailwind CSS"
-            class="w-16 h-16 mb-4" />
-          <h3 class="font-semibold text-lg">Chromadb</h3>
-        </div>
       </div>
     </section>
-
-    <!-- ==================== Certificates ==================== -->
-    <section
-      id="certificates"
-      class="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
-      <h2
-        class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto">
-        Certificates
-      </h2>
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="100">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Data Cleaning.png"
-            alt="Data Cleaning Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="200">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Data Visualization.png"
-            alt="Data Visualization Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="300">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Feature Engineering.png"
-            alt="Feature Engineering Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="400">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Intermediate Machine Learning.png"
-            alt="Intermediate Machine Learning Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="500">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Intro to Machine Learning.png"
-            alt="Intro to Machine Learning Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="600">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Intro to Programming.png"
-            alt="Intro to Programming Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="700">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Machine Learning Explainability.png"
-            alt="Machine Learning Explainability Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="800">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Pandas.png"
-            alt="Pandas Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="900">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Python.png"
-            alt="Python Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-
-        <div
-          class="bg-gray-700 p-4 rounded-lg w-72 shadow hover:shadow-lg transition"
-          data-aos="fade-up"
-          data-aos-delay="1000">
-          <img
-            src="certificates/Purnama Ridzky Nugraha - Time Series.png"
-            alt="Time Series Certificate"
-            class="rounded-md mx-auto modal-img" />
-        </div>
-      </div>
-    </section>
-    <div
-      id="modalfi"
-      class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
-      <span
-        id="modal-close"
-        class="absolute top-4 right-6 text-white text-3xl cursor-pointer font-bold"
-        >&times;</span
-      >
-      <img
-        id="modal-img"
-        src=""
-        alt="Enlarged certificate"
-        class="max-h-full max-w-full rounded-md shadow-lg" />
-    </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const modalImages = document.querySelectorAll(".modal-img");
-        const modal = document.getElementById("modalfi"); // sesuaikan dengan id modal di HTML
-        const modalImg = document.getElementById("modal-img");
-        const modalClose = document.getElementById("modal-close");
-
-        modalImages.forEach((img) => {
-          img.addEventListener("click", () => {
-            modal.style.display = "flex"; // tampilkan modal
-            modalImg.src = img.src; // ganti src modal dengan gambar yang diklik
-            modalImg.alt = img.alt;
-          });
-        });
-
-        // Tutup modal kalau klik tombol close
-        modalClose.addEventListener("click", () => {
-          modal.style.display = "none";
-        });
-
-        // Tutup modal kalau klik di luar gambar
-        modal.addEventListener("click", (e) => {
-          if (e.target === modal) {
-            modal.style.display = "none";
-          }
-        });
-      });
-    </script>
-
-    <!-- ==================== Competitions ==================== -->
-    <section
-      id="competitions"
-      class="py-20 px-6 bg-gray-900 text-white text-center">
-      <h2
-        class="text-4xl font-bold mb-16 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto"
-        data-aos="fade-down">
-        <img
-          src="icons/kaggle.png"
-          alt="Kaggle"
-          class="inline w-8 h-8 mr-2 align-middle" />
-        Competitions on Kaggle
-      </h2>
-
-      <div
-        class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        <div
-          class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left"
-          data-aos="fade-up">
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-2">
-            Solana Skill Sprint: Memecoin Graduation
-          </h3>
-          <p class="text-sm mb-1">Cryptocurrency Forecasting · 2024</p>
-          <a
-            href="https://www.kaggle.com/competitions/solana-skill-sprint-memcoin-graduation"
-            target="_blank"
-            class="text-blue-400 underline mt-2 inline-block"
-            >View Competition</a
-          >
-        </div>
-
-        <div
-          class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left"
-          data-aos="fade-up">
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-2">
-            Molecular Machine Learning
-          </h3>
-          <p class="text-sm mb-1">Chemical Property Prediction · 2024</p>
-          <a
-            href="https://www.kaggle.com/competitions/molecular-machine-learning"
-            target="_blank"
-            class="text-blue-400 underline mt-2 inline-block"
-            >View Competition</a
-          >
-        </div>
-
-        <div
-          class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left"
-          data-aos="fade-up">
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-2">
-            Playground Series - Season 5, Episode 3
-          </h3>
-          <p class="text-sm mb-1">Tabular Data Challenge · 2024</p>
-          <a
-            href="https://www.kaggle.com/competitions/playground-series-s5e3"
-            target="_blank"
-            class="text-blue-400 underline mt-2 inline-block"
-            >View Competition</a
-          >
-        </div>
-
-        <div
-          class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left"
-          data-aos="fade-up">
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-2">
-            Russian Car Plates Prices Prediction
-          </h3>
-          <p class="text-sm mb-1">Price Prediction · Regression · 2024</p>
-          <a
-            href="https://www.kaggle.com/competitions/russian-car-plates-prices-prediction"
-            target="_blank"
-            class="text-blue-400 underline mt-2 inline-block"
-            >View Competition</a
-          >
-        </div>
-
-        <div
-          class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left"
-          data-aos="fade-up">
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-2">
-            Spaceship Titanic
-          </h3>
-          <p class="text-sm mb-1">
-            Binary Classification · Sci-Fi Dataset · 2023
-          </p>
-          <a
-            href="https://www.kaggle.com/competitions/spaceship-titanic"
-            target="_blank"
-            class="text-blue-400 underline mt-2 inline-block"
-            >View Competition</a
-          >
-        </div>
-
-        <div
-          class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left"
-          data-aos="fade-up">
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-2">
-            Store Sales - Time Series Forecasting
-          </h3>
-          <p class="text-sm mb-1">Time Series · Ecuador Retail Data · 2023</p>
-          <a
-            href="https://www.kaggle.com/competitions/store-sales-time-series-forecasting"
-            target="_blank"
-            class="text-blue-400 underline mt-2 inline-block"
-            >View Competition</a
-          >
-        </div>
-
-        <div
-          class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left"
-          data-aos="fade-up">
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-2">
-            House Prices - Advanced Regression Techniques
-          </h3>
-          <p class="text-sm mb-1">
-            Regression · Feature Engineering · Classic Competition
-          </p>
-          <a
-            href="https://www.kaggle.com/competitions/house-prices-advanced-regression-techniques"
-            target="_blank"
-            class="text-blue-400 underline mt-2 inline-block"
-            >View Competition</a
-          >
-        </div>
-
-        <div
-          class="bg-gray-800 rounded-lg p-6 shadow-lg hover:scale-105 transition-transform text-left"
-          data-aos="fade-up">
-          <h3 class="text-2xl font-semibold text-yellow-400 mb-2">
-            Titanic - Machine Learning from Disaster
-          </h3>
-          <p class="text-sm mb-1">
-            Classification · Binary Prediction · Classic Competition
-          </p>
-          <a
-            href="https://www.kaggle.com/competitions/titanic"
-            target="_blank"
-            class="text-blue-400 underline mt-2 inline-block"
-            >View Competition</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== Resume Section ==================== -->
-    <section
-      id="resume"
-      class="py-20 px-6 bg-gradient-to-r from-blue-900 via-navy-800 to-navy-900 text-white text-center"
-      data-aos="fade-up">
-      <h2 class="text-3xl font-extrabold mb-8 tracking-wide drop-shadow-md">
-        Download My Resume
-      </h2>
-      <a
-        href="CV-CalmLogic.pdf"
-        download
-        class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow transition">
-        Download Resume (PDF)
-      </a>
-    </section>
-
     <!-- ==================== Footer ==================== -->
     <footer class="text-center py-6 text-gray-400 text-sm bg-gray-900">
       &copy; 2025 Purnama Ridzky Nugraha Portfolio. All rights reserved.
