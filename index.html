@@ -424,51 +424,61 @@
       });
     </script>
     <!-- ==================== Achievements & Kaggle Activity ==================== -->
-  <section
-  id="achievements"
-  class="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
+    <section
+      id="achievements"
+      class="py-20 px-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white text-center">
+      <h2
+        class="text-4xl font-bold mb-12 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto">
+        Achievements & Kaggle Activity
+      </h2>
 
-  <h2 class="text-4xl font-bold mb-12 border-b-4 border-yellow-500 inline-block pb-2 max-w-max mx-auto">
-    Achievements & Kaggle Activity
-  </h2>
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Certificates Card -->
+        <a
+          href="https://drive.google.com/drive/folders/1tVUIwLYKQdMhX-RdAJy-K8R8e8ZVcSj4?usp=sharing"
+          target="_blank"
+          class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
+          <h3 class="font-semibold text-xl text-yellow-400 mb-4">
+            Certificates
+          </h3>
+          <p class="text-sm mb-4">Explore all my certificates</p>
+          <span
+            class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
+            View
+          </span>
+        </a>
 
-  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Kaggle Competitions Card -->
+        <a
+          href="https://www.kaggle.com/purnamaridzkynugraha/competitions"
+          target="_blank"
+          class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
+          <h3 class="font-semibold text-xl text-yellow-400 mb-4">
+            Kaggle Competitions
+          </h3>
+          <p class="text-sm mb-4">Check my best competitions</p>
+          <span
+            class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
+            View
+          </span>
+        </a>
 
-    <!-- Certificates Card -->
-    <a href="https://drive.google.com/drive/folders/1tVUIwLYKQdMhX-RdAJy-K8R8e8ZVcSj4?usp=sharing"
-      target="_blank"
-      class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
-      <h3 class="font-semibold text-xl text-yellow-400 mb-4">Certificates</h3>
-      <p class="text-sm mb-4">Explore all my certificates</p>
-      <span class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
-        View
-      </span>
-    </a>
-
-    <!-- Kaggle Competitions Card -->
-    <a href="https://www.kaggle.com/purnamaridzkynugraha/competitions"
-      target="_blank"
-      class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
-      <h3 class="font-semibold text-xl text-yellow-400 mb-4">Kaggle Competitions</h3>
-      <p class="text-sm mb-4">Check my best competitions</p>
-      <span class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
-        View
-      </span>
-    </a>
-
-    <!-- Public Notebooks Card -->
-    <a href="https://www.kaggle.com/purnamaridzkynugraha/code"
-      target="_blank"
-      class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
-      <h3 class="font-semibold text-xl text-yellow-400 mb-4">Public Notebooks</h3>
-      <p class="text-sm mb-4">Explore my data & ML notebooks</p>
-      <span class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
-        View
-      </span>
-    </a>
-
-  </div>
-</section>
+        <!-- Public Notebooks Card -->
+        <a
+          href="https://www.kaggle.com/purnamaridzkynugraha/code"
+          target="_blank"
+          class="flex flex-col justify-between bg-gray-800 rounded-2xl p-6 shadow-2xl transform transition duration-500 hover:scale-105 hover:shadow-3xl">
+          <h3 class="font-semibold text-xl text-yellow-400 mb-4">
+            Public Notebooks
+          </h3>
+          <p class="text-sm mb-4">Explore my data & ML notebooks</p>
+          <span
+            class="px-6 py-2 bg-yellow-500 text-black font-bold rounded-2xl hover:bg-yellow-400 transition text-center">
+            View
+          </span>
+        </a>
+      </div>
+    </section>
 
     <!-- ==================== Projects ==================== -->
     <link
@@ -493,22 +503,22 @@
 
       <div
         class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Project 1: Y-Aladzan Reseller Platform -->
+        <!-- Project 1: Aladzan Corpora Reseller Platform -->
         <div
           class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card"
           tabindex="0"
           data-aos="fade-up"
           data-aos-delay="100"
           data-project='{
-            "title":"Y-Aladzan Reseller Platform",
-            "desc":"Fullstack web platform for managing reseller, admin, and superadmin roles.",
-            "details":"Developed a fullstack web platform for Aladzan Corpora to manage reseller operations, including product catalog, package access, dropshipping, and promotional materials. Admins manage resellers, packages, and transactions, while superadmins have full control and reporting capabilities. Front-end built with Tailwind CSS and back-end with PHP Laravel, supporting real-time data integration.",
-            "technologies":["PHP", "Laravel", "Tailwind", "HTML", "MySQL"]
-          }'>
-          <h3 class="text-xl font-bold">Y-Aladzan Reseller Platform</h3>
+    "title":"Aladzan Corpora Reseller Platform",
+    "desc":"Fullstack web platform for managing reseller program operations.",
+    "details":"Developed from scratch a fullstack platform for Aladzan Corpora with 3 roles: Reseller, Admin, Superadmin. Features include registration, package/catalog management, dropship, promotional materials, marketplace transactions, and operational reports. Front-end: Tailwind CSS, Back-end: PHP Laravel, real-time database. System deployed and supports company operations.",
+    "responsibility":"Fullstack Developer (handled both front-end & back-end independently)",
+    "technologies":["PHP", "Laravel", "Tailwind", "HTML", "MySQL"]
+  }'>
+          <h3 class="text-xl font-bold">Aladzan Corpora Reseller Platform</h3>
           <p class="text-gray-300 mt-2">
-            Fullstack web platform for managing reseller, admin, and superadmin
-            roles.
+            Fullstack web platform for managing reseller program operations.
           </p>
           <a
             href="https://github.com/PurnamaRidzkyN/Aladzan_Corpora"
@@ -518,21 +528,50 @@
           >
         </div>
 
-        <!-- Project 2: Tracer Study -->
+        <!-- Project 2: Y-Aladzan Internal Management System -->
         <div
           class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card"
           tabindex="0"
           data-aos="fade-up"
           data-aos-delay="200"
           data-project='{
-           "title":"Polinema Tracer Study",
-           "desc":"A Laravel-based web system for tracking alumni outcomes.",
-           "details":"Web application to facilitate tracer study for Polinema using Laravel framework. Allows alumni to fill in post-graduation data and helps institutions evaluate career outcomes.",
-           "technologies":["PHP", "Laravel", "MySQL", "HTML", "CSS", "Bootstrap"]
-         }'>
+    "title":"Y-Aladzan Internal Management System",
+    "desc":"Internal web system for employee, finance, and operational management.",
+    "details":"Developed an internal PHP Laravel web system for Y-Aladzan Corporation to manage employees, attendance, financial records, PDF report generation, and visual dashboards with charts. Deployed internally, improving operational efficiency.",
+    "responsibility":"Fullstack Developer (handled both front-end & back-end independently)",
+    "technologies":["PHP", "Laravel", "HTML", "CSS", "Bootstrap"]
+  }'>
+          <h3 class="text-xl font-bold">
+            Y-Aladzan Internal Management System
+          </h3>
+          <p class="text-gray-300 mt-2">
+            Internal web system for employee, finance, and operational
+            management.
+          </p>
+          <a
+            href="https://github.com/PurnamaRidzkyN/Website-Y-ALADZAN-CORPORATION"
+            target="_blank"
+            class="inline-block mt-4 text-yellow-400 hover:underline"
+            >View on GitHub</a
+          >
+        </div>
+
+        <!-- Project 3: Polinema Tracer Study -->
+        <div
+          class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card"
+          tabindex="0"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          data-project='{
+        "title":"Polinema Tracer Study",
+    "desc":"Laravel-based web system for tracking alumni outcomes.",
+    "details":"Allows alumni to submit post-graduation data and institutions to analyze career outcomes. Coordinated team of 4 as Project Manager, developed several features.",
+    "responsibility":"Project Manager (coordinated team of 4, contributed to coding)",
+    "technologies":["PHP", "Laravel", "MySQL", "HTML", "CSS", "Bootstrap"]
+  }'>
           <h3 class="text-xl font-bold">Polinema Tracer Study</h3>
           <p class="text-gray-300 mt-2">
-            A Laravel-based web system for tracking alumni outcomes.
+            Laravel-based web system for tracking alumni outcomes.
           </p>
           <a
             href="https://github.com/PurnamaRidzkyN/TRACER_STUDY"
@@ -542,29 +581,53 @@
           >
         </div>
 
-        <!-- Project 3: Y-Aladzan Website -->
+        <!-- Project 4: SIMPA-TI -->
         <div
           class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card"
           tabindex="0"
           data-aos="fade-up"
-          data-aos-delay="300"
+          data-aos-delay="400"
           data-project='{
-            "title": "Y-Aladzan Internal Management System",
-            "desc": "Internal web-based system for Y-Aladzan Corporation data management.",
-            "details": "This internal system is used by Y-Aladzan Corporation for managing company data. It is not publicly accessible and supports various admin operations within the organization.",
-            "technologies": ["PHP", "HTML", "CSS", "Bootstrap", "Laravel"]
-          }'>
-          <h3 class="text-xl font-bold">
-            Y-Aladzan Internal Management System
-          </h3>
+    "title":"SIMPA-TI",
+    "desc":"Web system for recording student achievements and ranking.",
+    "details":"Allows students to upload achievements, calculates rankings approved by lecturers. Team of 4.",
+    "responsibility":"Project Manager & Backend Developer (team of 4)",
+    "technologies":["PHP", "HTML", "CSS"]
+  }'>
+          <h3 class="text-xl font-bold">SIMPA-TI</h3>
           <p class="text-gray-300 mt-2">
-            Internal web-based system for Y-Aladzan Corporation data management.
+            Web system for recording student achievements and ranking.
           </p>
           <a
-            href="https://github.com/PurnamaRidzkyN/Website-Y-ALADZAN-CORPORATION"
+            href="https://github.com/PurnamaRidzkyN/PurnamaRidzkyN-SIMPA-TI_Sistem-Informasi-Mahasiswa-Prestasi-Akademik-Teknologi-Informasi"
             target="_blank"
             class="inline-block mt-4 text-yellow-400 hover:underline"
             >View on GitHub</a
+          >
+        </div>
+
+        <!-- Project 5: Kaggle Notebook -->
+        <div
+          class="bg-gray-700 p-6 rounded-lg shadow hover:shadow-lg transition cursor-pointer project-card"
+          tabindex="0"
+          data-aos="fade-up"
+          data-aos-delay="500"
+          data-project='{
+    "title":"Predict With XGB – Kaggle Notebook (Bronze medal)",
+    "desc":"End-to-end ML project predicting outcomes with XGBoost.",
+    "details":"Achieved a loss of 0.003 in Solana Skill Sprint - Memcoin Graduation competition. Covers data preprocessing, modeling, and evaluation.",
+    "responsibility":"Data Scientist (handled entire process from data cleaning to prediction, won Bronze medal)",
+    "technologies":["Python", "XGBoost", "Pandas", "Scikit-learn", "NumPy"]
+  }'>
+          <h3 class="text-xl font-bold">Predict With XGB – Kaggle Notebook (Bronze medal)</h3>
+          <p class="text-gray-300 mt-2">
+            End-to-end ML project predicting outcomes with XGBoost.
+          </p>
+          <a
+            href="https://www.kaggle.com/code/purnamaridzkynugraha/predict-with-xgb-get-loss-0-003"
+            target="_blank"
+            class="inline-block mt-4 text-yellow-400 hover:underline"
+            >View on Kaggle</a
           >
         </div>
       </div>
@@ -582,6 +645,7 @@
         <h3 class="text-2xl font-bold mb-2" id="modal-title"></h3>
         <p id="modal-desc" class="mb-4"></p>
         <p id="modal-details" class="mb-4"></p>
+        <p id="modal-responsibility" class="text-gray-400 mt-2 italic"></p>
         <div id="modal-techs" class="flex flex-wrap gap-2"></div>
       </div>
     </div>
@@ -745,6 +809,9 @@
       const modalTitle = document.getElementById("modal-title");
       const modalDesc = document.getElementById("modal-desc");
       const modalDetails = document.getElementById("modal-details");
+      const modalResponsibility = document.getElementById(
+        "modal-responsibility"
+      ); // <- fix
       const modalTechs = document.getElementById("modal-techs");
       const modalCloseBtn = document.querySelector(".modal-close");
 
@@ -754,6 +821,7 @@
           modalTitle.textContent = data.title;
           modalDesc.textContent = data.desc;
           modalDetails.textContent = data.details;
+          modalResponsibility.textContent = data.responsibility; // <- fix
           modalTechs.innerHTML = "";
           data.technologies.forEach((tech) => {
             const span = document.createElement("span");
@@ -777,7 +845,6 @@
       const formStatus = document.getElementById("form-status");
       contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        // Simulate sending message
         formStatus.classList.remove("hidden");
         contactForm.reset();
       });
