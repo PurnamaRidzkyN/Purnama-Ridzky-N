@@ -1,10 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-83XWWM73F9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-83XWWM73F9");
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="dH0myw6wXj1XChcUJQXRVeTE_a7-gId83LtpY9dQyfA" />
-    <meta name="description" content="Portfolio of Purnama Ridzky Nugraha. Transforming raw data into insights for seizing opportunities through Data Science, AI, and Machine Learning." />
+    <meta
+      name="google-site-verification"
+      content="dH0myw6wXj1XChcUJQXRVeTE_a7-gId83LtpY9dQyfA" />
+    <meta
+      name="description"
+      content="Portfolio of Purnama Ridzky Nugraha. Transforming raw data into insights for seizing opportunities through Data Science, AI, and Machine Learning." />
     <title>Purnama R N</title>
 
     <!-- Tailwind CSS -->
@@ -418,7 +435,7 @@
         if (charIndex > 0) {
           typingElement.textContent = typingTexts[textIndex].substring(
             0,
-            charIndex - 1
+            charIndex - 1,
           );
           charIndex--;
           setTimeout(eraseEffect, 40);
@@ -628,7 +645,9 @@
     "responsibility":"Data Scientist (handled entire process from data cleaning to prediction, won Bronze medal)",
     "technologies":["Python", "XGBoost", "Pandas", "Scikit-learn", "NumPy"]
   }'>
-          <h3 class="text-xl font-bold">Predict With XGB – Kaggle Notebook (Bronze medal)</h3>
+          <h3 class="text-xl font-bold">
+            Predict With XGB – Kaggle Notebook (Bronze medal)
+          </h3>
           <p class="text-gray-300 mt-2">
             End-to-end ML project predicting outcomes with XGBoost.
           </p>
@@ -819,7 +838,7 @@
       const modalDesc = document.getElementById("modal-desc");
       const modalDetails = document.getElementById("modal-details");
       const modalResponsibility = document.getElementById(
-        "modal-responsibility"
+        "modal-responsibility",
       ); // <- fix
       const modalTechs = document.getElementById("modal-techs");
       const modalCloseBtn = document.querySelector(".modal-close");
